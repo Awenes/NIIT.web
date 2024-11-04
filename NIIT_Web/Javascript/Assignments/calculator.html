@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #wrap {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calc {
+            max-width: 400px;
+            height: 550px;
+            border: 3px solid black;
+            border-radius: 20px;
+        }
+        .calc input {
+            width: 360px;
+            margin: 20px;
+            height: 50px;
+            background-color: rgb(149, 221, 149);
+        }
+        .num {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+            height: 300px;
+            border: 1px solid black;
+            padding-top: 10px;
+        }
+        .num button {
+            width: 90px;
+            height: 60px;
+            cursor: pointer;
+        }
+        .op {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid black;
+            height: 80px;
+        }
+        .op button {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            font-size: larger;
+        }
+    </style>
+
+    <script>
+        var calculate = "";
+            function prepareValue(value) {
+                calculate += value;
+                var input = document.getElementById('val');
+                input.value = calculate;
+            }
+
+            function calulateValue() {
+                var result = eval(calculate);
+                var input = document.getElementById('val');
+                input.value = result;
+                calculate = result;
+            } 
+    </script>
+
+</head>
+<body>
+
+    <div id="wrap">
+
+        <div class="calc">
+
+            <input type="text" disabled id="val">
+            <div class="num">
+                <button onclick="prepareValue('1')">1</button>
+                <button onclick="prepareValue('2')">2</button>
+                <button onclick="prepareValue('3')">3</button>
+                <button onclick="prepareValue('4')">4</button>
+                <button onclick="prepareValue('5')">5</button>
+                <button onclick="prepareValue('6')">6</button>
+                <button onclick="prepareValue('7')">7</button>
+                <button onclick="prepareValue('8')">8</button>
+                <button onclick="prepareValue('9')">9</button>
+                <button onclick="prepareValue('0')">0</button>
+            </div>
+            <div class="op">
+                <button onclick="prepareValue('+')">+</button>
+                <button onclick="prepareValue('-')">-</button>
+                <button onclick="prepareValue('*')">*</button>
+                <button onclick="prepareValue('/')">/</button>
+                <button onclick="calulateValue()">=</button>
+            </div>
+            
+
+        </div>
+        
+    </div>
+    
+</body>
+</html>

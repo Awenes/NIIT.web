@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+
+        #switch {
+            width: 120px;
+            height: 40px;
+            border: 1px solid green;
+            border-radius: 20px;
+            transition: 0.5s;
+            background-color: green;
+            display: flex;
+            align-items: center;
+        }
+
+        #circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid green;
+            background-color: white;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+    </style>
+
+    <script>
+
+        let state = 0;
+
+        function turnOn () {
+            if(state === 0){
+                let circle = document.getElementById('circle');
+                circle.style.transform = 'translate(80px)';
+                let switchDiv = document.getElementById('switch');
+                switchDiv.style.backgroundColor = 'rgba(100, 200, 100)';
+                let container = document.getElementById('container');
+                container.style.backgroundColor = 'rgb(10, 10, 20)';
+                container.style. color = 'rgb(255, 255, 255)';
+                state = 1;
+        }
+    }
+
+        function turnOff() {
+                if (state === 1) {
+                let circle = document.getElementById('circle');
+                circle.style.transform = 'translate(0px)';
+                let switchDiv = document.getElementById('switch');
+                switchDiv.style.backgroundColor = 'rgb(255, 255, 255)';
+                let container = document.getElementById('container');
+                container.style.backgroundColor = 'rgb(255, 255, 255)';
+                container.style.color = 'rgb(0, 0, 0)';
+                state = 0;
+        }
+    }
+
+    function toggleMode () {
+        if(state === 0) {
+            turnOn();
+        }else{
+            turnOff();
+        }
+    }
+
+    </script>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Hello World!</h1>
+        <div id="switch">
+            <div id="circle" onclick="toggleMode()"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

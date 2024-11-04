@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(100,20,100);
+        }
+    </style>
+    <script>
+        function myText(textE){
+            var text = document.createElement("h1");
+            text.innerText = textE;
+            return text;
+        }
+
+        function generateElements(){
+            var text = myText("My Text");
+
+            var main = document.createElement("div");
+            main.id = "main";
+            main.append(text);
+            document.body.append(main);
+        }
+
+        const text = ["My Text", "New Text", "Hello World", "Visible Text", "New Text"];
+        function generateRandomText(){
+            var random = Math.floor(Math.random()*(text.length-1));
+            var randomNewText = document.createElement("h1");
+            randomNewText.innerText = text[random];
+            document.body.append(randomNewText);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="generateRandomText()">Generate Text</button>
+    </div>
+</body>
+</html>

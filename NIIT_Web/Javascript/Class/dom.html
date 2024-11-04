@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function changeText(){
+            let text = document.getElementById("text");
+            text.innerText = "Change Text";
+            text.style.color = "green";
+        }
+        function addNumbers(){
+            let a = document.getElementById('a');
+            let b = document.getElementById('b');
+            let text = document.getElementById('text');
+
+            let ans = parseInt(a.value) + parseInt(b.value);
+
+            text.innerText = ans;
+        }
+        function multiplyNumbers() {
+            let a = document.getElementById('a');
+            let b = document.getElementById('b');
+            let text = document.getElementById('text');
+
+            let ans = parseInt(a.value) * parseInt(b.value);
+
+            text.innerText = ans;
+        }
+        function subtractNumbers() {
+            let a = document.getElementById('a');
+            let b = document.getElementById('b');
+            let text = document.getElementById('text');
+
+            let ans = parseInt(a.value) - parseInt(b.value);
+
+            text.innerText = ans;
+        }
+        function divideNumbers() {
+            let a = document.getElementById('a');
+            let b = document.getElementById('b');
+            let text = document.getElementById('text');
+
+            let ans = parseInt(a.value) / parseInt(b.value);
+
+            text.innerText = ans;
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <input type="text" id="a">
+        <input type="text" id="b">
+        <button onclick="addNumbers()">Add</button>
+        <button onclick="multiplyNumbers()">Multiply</button>
+        <button onclick="subtractNumbers()">Subtract</button>
+        <button onclick="divideNumbers()">Divide</button>
+        <h1 id="text">Hello</h1>
+        <button onclick="changeText()">Change Text</button>
+    </div>
+    
+</body>
+</html>

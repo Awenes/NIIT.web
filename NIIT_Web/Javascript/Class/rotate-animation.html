@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: magenta;
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin: 100px;
+            transition: all 2s ease-in;
+        }
+        .box-r {
+            background-color: blueviolet;
+            width: 400px;
+            height: 400px;
+            border-radius: 0px;
+            margin: 50px;
+            rotate: 360deg;
+            transition: all 2s ease-in;
+        }
+    </style>
+    <script defer>
+        let state = 0;
+
+        function enlarge() {
+            if (state === 0) {
+                let element = document.getElementById("box");
+                element.className = ("box-r");
+                state = 1;
+            }
+        }
+        function reduce() {
+            if (state === 1) {
+                let element = document.getElementById("box");
+                element.className = ("box");
+                state = 0;
+            }
+        }
+
+        function boxRotate() {
+            if (state === 0) {
+                enlarge()
+            } else {
+                reduce();
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <center>
+        <div id="box" class="box"></div>
+        <button id="rotate" onclick="boxRotate()">Rotate</button>
+    </center>
+
+</body>
+</html>

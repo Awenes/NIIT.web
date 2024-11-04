@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        .wrap {
+            width: 100%;
+            height: 100%;
+        }
+        .one, .two, .three, .four {
+            height: 500px;
+            width: 100%;
+        }
+        .one {
+            background-color: blue;
+        }
+        .two {
+            background-color: cyan;
+        }
+        .three {
+            background-color: greenyellow;
+        }
+        .four {
+            background-color: green;
+        }
+        #scroll {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+
+    <script defer>
+        function scrollToTop(){
+            let first = document.getElementById("one");
+            first.scrollIntoView({
+                block:"start"
+            })
+        }
+
+        function changeColor() {
+                if (event.key === "ArrowLeft"){
+                    let one  = document.getElementById('one');
+                    one.style.backgroundColor = "rgba(100,20,100)";
+                }else if(event.key === "ArrowLeft"){
+                    let one = document.getElementById('one');
+                    one.style.backgroundColor = "blue";
+                }
+            }
+    </script>
+
+</head>
+<body onkeyup="changeColor()">
+
+    <div class="wrap">
+        <div class="one" id="one"></div>
+        <div class="two" id="two"></div>
+        <div class="three" id="three"></div>
+        <div class="four" id="four"></div>
+        <button id="scroll" onclick="scrollToTop()">Scroll</button>
+    </div>
+    
+</body>
+</html>

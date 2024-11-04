@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function startClock(){
+            var duration = document.getElementById('time').value;
+           var minute = parseInt(duration.split(":")[1]);
+           var milliseconds = minute*60*1000;
+           console.log(milliseconds);
+           var seconds = 1;
+           var minutes = 1;
+           var millisecond = 1;
+           var secondInterval = setInterval(()=>{
+                document.getElementById('seconds').innerText = seconds;
+                seconds++;
+            }, 1000);
+
+            var minuteInterval = setInterval(()=>{
+                document.getElementById('minutes').innerText = minutes;
+                minutes++;
+            }, 60000);
+
+            var millisecondInterval = setInterval(()=>{
+                if(millisecond >= 60){
+                    millisecond = 0;
+                    document.getElementById('milliseconds').innerText = millisecond;
+                }else{
+                    document.getElementById('milliseconds').innerText = millisecond;
+                }
+                millisecond++;
+            }, 18);
+            
+           setTimeout(()=>{
+            clearInterval(secondInterval);
+            clearInterval(minuteInterval);
+            clearInterval(millisecondInterval);
+           }, milliseconds);
+        }
+
+
+        var calculate = "";
+        function getValue(value){
+            document.getElementById('text').value+=value;
+            calculate+=value;
+        }
+
+        function computeCalculate(){
+            if(calculate.includes("pow"))
+            {
+                var splittedString = calculate.split("pow");
+                calculate = splittedString[0]+"**"+splittedString[1];
+                var result = eval(calculate);
+                document.getElementById('text').value = result;
+                calculate = result;
+            }else if(calculate.includes("root"))
+            {
+                var splittedString = calculate.split("root");
+                calculate = splittedString[0]+"**"+("(1/"+splittedString[1]+")");
+                alert(calculate);
+                var result = eval(calculate);
+                document.getElementById('text').value = result;
+                calculate = result;
+            }else{
+                var result = eval(calculate);
+                document.getElementById('text').value = result;
+                calculate = result;
+            }
+        }
+
+        function clearCalculate(){
+            document.getElementById('text').value = "";
+            calculate = "";
+        }
+
+        function deleteCalculate(){
+            var text = document.getElementById('text');
+            text.value = text.value.substring(0, text.value.length-1);
+            calculate = calculate.substring(0, calculate.length-1);
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <input type="time" id="time">
+        <button onclick="startClock()">Start</button>
+        <h1 id="minutes">00</h1>
+        <h1 id="seconds">00</h1>
+        <h1 id="milliseconds">00</h1>
+        <div>
+            <input id="text" type="text" disabled>
+            <button onclick="getValue('1')">1</button>
+            <button onclick="getValue('2')">2</button>
+            <button onclick="getValue('3')">3</button>
+            <button onclick="getValue('4')">4</button>
+            <button onclick="getValue('5')">5</button>
+            <button onclick="getValue('6')">6</button>
+            <button onclick="getValue('7')">7</button>
+            <button onclick="getValue('8')">8</button>
+            <button onclick="getValue('9')">9</button>
+            <button onclick="getValue('0')">0</button>
+            <button onclick="getValue('+')">+</button>
+            <button onclick="getValue('-')">-</button>
+            <button onclick="getValue('*')">*</button>
+            <button onclick="getValue('/')">/</button>
+            <button onclick="getValue('%')">mod</button>
+            <button onclick="getValue('pow')">power</button>
+            <button onclick="getValue('root')">root</button>
+            <button onclick="clearCalculate()">C</button>
+            <button onclick="deleteCalculate()">DEL</button>
+            <button onclick="computeCalculate()">=</button>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let number = [1, 2, 3, 4, 5];
+        let figures = [1, 2, 3, 4, 5];
+
+        //function to add two given arrays
+        function addArrays(arr1, arr2) {
+            let sum = [];
+            let length = Math.min(arr1.length, arr2.length);
+
+            for (let i = 0; i < length; i++) {
+                sum.push(arr1[i] + arr2[i]);
+            }
+
+            return sum;
+        }
+
+        //giving the results in a new array
+        let last = addArrays(number, figures);
+        console.log(last)
+
+        //function to add an array's elements
+        function addArr(arr) {
+            let sum = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+        }
+
+        //sum of the array elements
+        let arrsum = addArr(last);
+        console.log(arrsum);
+
+        //mean of the given array
+        let mean = arrsum / last.length;
+        console.log(mean);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
